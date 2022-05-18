@@ -54,7 +54,6 @@ function App() {
     console.log(prompt);
     console.log(data);
     // console.log("fetching");
-    // Authorization: `Bearer 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`,
     fetch("https://api.openai.com/v1/engines/text-curie-001/completions", {
       method: "POST",
       headers: {
@@ -101,10 +100,13 @@ function App() {
               <h1 className='text-5xl my-4'>
                 Fun with API
               </h1>
+              <div className="flex items-center justify-center gap-5">
               <p className='text-xl'>
                 Ask me anything
               </p>
-                <button className="rounded-md bg-red-200 text-xl font-medium px-5 md:w-44 lg:w-60" type='button' onClick={() => clearResponses()}>Clear all</button>
+                {/* <button className="rounded-md bg-red-200 text-xl font-medium px-5 md:w-44 lg:w-60" type='button' onClick={() => clearResponses()}>Clear all</button> */}
+                <button className="rounded-md text-red-500 text-lg font-medium underline" type='button' onClick={() => clearResponses()}>Clear all</button>
+                </div>
             </div>
             <div className="responses-container flex-auto w-full">
               <div className="h-[70vh] flex overflow-y-auto p-3 w-full">
@@ -122,7 +124,11 @@ function App() {
             </div>
             <div className="h-fit">
               <form className="form flex items-stretch gap-2 py-3" onSubmit={(e) => fetchPrompt(e)}>
-                <textarea rows="2" placeholder='Enter Prompt...' className="w-full border border-gray-300 rounded-md px-5 py-2.5" value={prompt} onChange={(e) => setPrompt(e.target.value)}>
+                <textarea 
+                rows="2" 
+                placeholder='Enter Prompt...' 
+                className="w-full border border-gray-300 rounded-md px-5 py-2.5 focus:shadow outline-none" 
+                      value={prompt} onChange={(e) => setPrompt(e.target.value)}>
                 </textarea>
                 <button className="rounded-md bg-green-200 text-xl font-medium px-5 md:w-44 lg:w-60" type='submit' disabled={fetching}>Submit</button>
               </form>
