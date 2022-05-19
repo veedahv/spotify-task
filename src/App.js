@@ -58,11 +58,17 @@ function App() {
               <h1 className='text-5xl my-4'>
                 Fun with API
               </h1>
-              <div className="flex items-center justify-center gap-5">
+              <div className="flex items-center justify-center gap-5 my-2">
                 <p className='text-xl'>
                   Ask me anything
                 </p>
-                {(responses.length > 0) && <button className="rounded-md text-red-500 text-lg font-medium underline" type='button' onClick={() => clearResponses()}>Clear all</button>}
+                {(responses.length > 0) &&
+                  <button
+                    className="rounded-md text-red-500 text-lg font-medium underline"
+                    type='button'
+                    onClick={() => clearResponses()}>
+                    Clear all
+                  </button>}
               </div>
             </div>
             <div className="responses-container flex-auto w-full">
